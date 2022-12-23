@@ -2,6 +2,8 @@
 
 Very easy to use NodeJS HTTP client.
 
+Predictable API. Does not throw error on non-200 response.
+
 ### Install
 
 ```
@@ -19,10 +21,21 @@ const options = {
   params = '',
   query = {},
   auth = '',
+  use = [],
   headers = {}
 }
 const url = 'https://api.example.com'
-const result = await request(url, options)
+const response = await request(url, options)
+{
+  code: 200,
+  data: {},
+  text: '<html></html>',
+  length: 13,
+  type: 'text/html',
+  date: 2022-12-23T13:25:10.000Z,
+  connection: 'close',
+  ok: true
+}
 ```
 
 ISC Licensed. Enjoy!
