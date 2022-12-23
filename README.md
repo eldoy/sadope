@@ -1,6 +1,6 @@
 # Sadope
 
-NodeJS HTTP client based on [superagent.](https://github.com/visionmedia/superagent)
+Very easy to use NodeJS HTTP client.
 
 ### Install
 

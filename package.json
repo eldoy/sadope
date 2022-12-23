@@ -1,10 +1,11 @@
 {
   "name": "sadope",
   "version": "0.1.0",
-  "description": "NodeJS HTTP client based on superagent",
+  "description": "Very easy to use NodeJS HTTP client",
   "main": "index.js",
   "scripts": {
-    "test": "jest --watch"
+    "test": "nodemon test/sadope.test.js",
+    "serve:test": "nodemon server.js"
   },
   "repository": {
     "type": "git",
