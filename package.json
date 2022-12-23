@@ -1,6 +1,6 @@
 {
   "name": "sadope",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "description": "Very easy to use NodeJS HTTP client",
   "main": "index.js",
   "scripts": {
