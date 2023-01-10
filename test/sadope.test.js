@@ -49,6 +49,17 @@ async function run() {
   assert.ok(!!result.date)
   assert.ok(result.connection == 'close')
   assert.ok(result.ok === true)
+
+  // Test auth
+  result = await sadope(BASE + '/auth', { auth: 'hello' })
+  assert.ok(result.code == 200)
+  assert.ok(result.data.auth === true)
+  assert.ok(result.text == 'true')
+  assert.ok(result.length == 4)
+  assert.ok(result.type == 'application/json')
+  assert.ok(!!result.date)
+  assert.ok(result.connection == 'close')
+  assert.ok(result.ok === true)
 }
 
 run()

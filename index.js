@@ -7,24 +7,25 @@ module.exports = function request(url, options = {}) {
     query = '',
     use = [],
     auth = '',
-    headers = {}
+    headers = {},
+    type = ''
   } = options
 
   return new Promise(function (resolve) {
-    let req = superagent[method](url).send(params)
+    const req = superagent[method](url).send(params)
     if (query) {
-      req = req.query(query)
+      req.query(query)
     }
     for (const fn of use) {
       if (typeof fn == 'function') {
-        req = req.use(fn)
+        req.use(fn)
       }
     }
     if (auth) {
-      req = req.set('Authorization', auth)
+      req.set('Authorization', auth)
     }
     for (const field in headers) {
-      req = req.set(field, headers[field])
+      req.set(field, headers[field])
     }
     req.end(function (err, res) {
       const response = {
