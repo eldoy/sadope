@@ -5,6 +5,7 @@ module.exports = function request(url, options = {}) {
     method = 'get',
     params = '',
     query = '',
+    fields = {},
     use = [],
     auth = '',
     headers = {},
@@ -18,6 +19,9 @@ module.exports = function request(url, options = {}) {
     }
     if (query) {
       req.query(query)
+    }
+    for (const field in fields) {
+      req.field(field, fields[field])
     }
     for (const fn of use) {
       if (typeof fn == 'function') {
