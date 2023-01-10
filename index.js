@@ -9,7 +9,8 @@ module.exports = function request(url, options = {}) {
     use = [],
     auth = '',
     headers = {},
-    type = ''
+    type = '',
+    accept = ''
   } = options
 
   return new Promise(function (resolve) {
@@ -19,6 +20,9 @@ module.exports = function request(url, options = {}) {
     }
     if (query) {
       req.query(query)
+    }
+    if (accept) {
+      req.accept(accept)
     }
     for (const field in fields) {
       req.field(field, fields[field])
