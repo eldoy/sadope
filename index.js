@@ -27,6 +27,9 @@ module.exports = function request(url, options = {}) {
     for (const field in headers) {
       req.set(field, headers[field])
     }
+    if (type) {
+      req.type(type)
+    }
     req.end(function (err, res) {
       const response = {
         code: res.statusCode,

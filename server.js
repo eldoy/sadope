@@ -16,7 +16,6 @@ const server = http.createServer(async function (req, res) {
   } else if (req.url == '/auth') {
     res.setHeader('content-type', 'application/json')
     res.statusCode = 200
-    console.log(req.headers)
     const authorized = !!req.headers.auth
     res.end(JSON.stringify({ authorized }))
   } else {
