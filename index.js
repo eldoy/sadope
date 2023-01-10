@@ -12,7 +12,10 @@ module.exports = function request(url, options = {}) {
   } = options
 
   return new Promise(function (resolve) {
-    const req = superagent[method](url).send(params)
+    const req = superagent[method](url)
+    if (params) {
+      req.send(params)
+    }
     if (query) {
       req.query(query)
     }
@@ -31,7 +34,6 @@ module.exports = function request(url, options = {}) {
       req.type(type)
     }
     req.end(function (err, res) {
-      console.log(res)
       const response = {
         code: res.statusCode,
         data: res.body || {},

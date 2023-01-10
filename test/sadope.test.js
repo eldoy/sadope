@@ -55,9 +55,9 @@ async function run() {
   console.log(result)
 
   assert.ok(result.code == 200)
-  assert.ok(result.data.auth === true)
-  assert.ok(result.text == 'true')
-  assert.ok(result.length == 4)
+  assert.ok(result.data.authorized === true)
+  assert.ok(result.text == '{"authorized":true}')
+  assert.ok(result.length == 19)
   assert.ok(result.type == 'application/json')
   assert.ok(!!result.date)
   assert.ok(result.connection == 'close')
