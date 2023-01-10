@@ -31,6 +31,7 @@ module.exports = function request(url, options = {}) {
       req.type(type)
     }
     req.end(function (err, res) {
+      console.log(res)
       const response = {
         code: res.statusCode,
         data: res.body || {},
