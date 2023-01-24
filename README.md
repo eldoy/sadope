@@ -19,10 +19,13 @@ const request = require('sadope')
 const options = {
   method = 'get',
   params = '',
-  query = {},
-  auth = '',
+  query = '',
+  fields = {},
   use = [],
-  headers = {}
+  auth = '',
+  headers = {},
+  type = '',
+  accept = ''
 }
 const url = 'https://api.example.com'
 const response = await request(url, options)
