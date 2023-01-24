@@ -34,8 +34,6 @@ async function run() {
   assert.ok(result.connection == 'close')
   assert.ok(result.ok === false)
 
-  console.log('Done.')
-
   // Test HTML response
   result = await sadope(BASE + '/html')
   console.log(result)
@@ -62,6 +60,8 @@ async function run() {
   assert.ok(!!result.date)
   assert.ok(result.connection == 'close')
   assert.ok(result.ok === true)
+  
+  console.log('Done.')
 }
 
 run()
