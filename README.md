@@ -41,4 +41,27 @@ const response = await request(url, options)
 }
 ```
 
+On error the response includes an `error` object like this:
+```js
+{
+  code: 0,
+  data: {},
+  text: '',
+  length: 0,
+  type: '',
+  date: 2023-01-29T15:09:30.000Z,
+  connection: '',
+  headers: {},
+  ok: false,
+  error: {
+    errno: -61,
+    code: 'ECONNREFUSED',
+    syscall: 'connect',
+    address: '127.0.0.1',
+    port: 54364,
+    message: 'connect ECONNREFUSED 127.0.0.1:54364'
+  }
+}
+```
+
 ISC Licensed. Enjoy!

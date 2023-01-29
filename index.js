@@ -41,18 +41,26 @@ module.exports = function request(url, options = {}) {
     if (type) {
       req.type(type)
     }
-    req.end(function (err, res) {
-      const response = {
-        code: res.statusCode,
+    req.end(function (err, response) {
+      const res = response || err?.response || {}
+      res.headers = res.headers || {}
+      const text = res.text || ''
+      const result = {
+        code: res.statusCode || 0,
         data: res.body || {},
-        text: res.text || '',
-        length: parseInt(res.headers['content-length']),
+        text,
+        length: parseInt(res.headers['content-length']) || text.length,
         type: (res.headers['content-type'] || '').toLowerCase(),
-        date: new Date(Date.parse(res.headers.date)),
-        connection: res.headers.connection,
-        ok: res.ok
+        date: new Date(Date.parse(res.headers.date || new Date())),
+        connection: res.headers.connection || '',
+        headers: res.headers || {},
+        ok: res.ok || false
       }
-      resolve(response)
+      if (err) {
+        result.error = JSON.parse(JSON.stringify(err))
+        result.error.message = err.message
+      }
+      resolve(result)
     })
   })
 }
