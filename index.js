@@ -33,7 +33,7 @@ module.exports = function request(url, options = {}) {
       }
     }
     if (auth) {
-      req.set('Authorization', auth)
+      req.set('authorization', auth)
     }
     for (const field in headers) {
       req.set(field, headers[field])
